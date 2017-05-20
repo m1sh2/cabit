@@ -1,53 +1,12 @@
-# Cabit
-Event driven state of the app.
-
-## API
-
-### Emmit
-
-```
-var data = {
-  a: 'a'
-};
-
-// Emmit start event
-cabit.start('name', data);
-
-data.a = 'b';
-
-// Emmit end event
-cabit.end('name', data);
-```
-
-### Subscribe
-
-```
-// Subscribe to start
-cabit.onStart('name', function(data) {
-  console.log(data);
-});
-
-// Subscribe to end
-cabit.onEnd('name', function(data) {
-  console.log(data);
-});
-
-// Subscribe to all
-cabit.onAll('name', function(data) {
-  console.log(data);
-});
-```
-
-## Example
-
-```
+<script src="index.js"></script>
+<script>
 function MyFunction() {
   cabit.onStart('some', function(data) {
     console.log('MyFunction', 'constructor', 'start', data);
   });
 }
 
-MyFunction.prototype.someMethod = function() {
+MyFunction.prototype.someMethod = function(arg) {
   setTimeout(function() {
     cabit.start('some', {
       a: 'a'
@@ -62,7 +21,7 @@ MyFunction.prototype.someMethod = function() {
 }
 
 var myFunction = new MyFunction();
-myFunction.someMethod();
+myFunction.someMethod(5);
 
 function MyModule() {
   cabit.onStart('some', function(data) {
@@ -70,7 +29,7 @@ function MyModule() {
   });
 }
 
-MyModule.prototype.someMethod = function() {
+MyModule.prototype.someMethod = function(arg) {
   cabit.onEnd('some', function(data) {
     console.log('MyModule', 'someMethod', 'end', data);
   });
@@ -81,5 +40,5 @@ cabit.onAll('some', function(data) {
 });
 
 var MyModule = new MyModule();
-MyModule.someMethod();
-```
+MyModule.someMethod(10);
+</script>

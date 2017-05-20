@@ -1,0 +1,26 @@
+{
+  "name": "cabit",
+  "version": "0.0.1",
+  "description": "Event driven state of the app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m1sh2/cabit.git"
+  },
+  "keywords": [
+    "state",
+    "stateless",
+    "messages",
+    "data",
+    "bus"
+  ],
+  "author": "Mike Datsko <mike@datsko.it> (http://datsko.it)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/m1sh2/cabit/issues"
+  },
+  "homepage": "https://github.com/m1sh2/cabit#readme"
+}
