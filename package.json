@@ -15,7 +15,13 @@
     "stateless",
     "messages",
     "data",
-    "bus"
+    "bus",
+    "angular",
+    "angular2",
+    "angular 2",
+    "ng",
+    "ng2",
+    "ng 2"
   ],
   "author": "Mike Datsko <mike@datsko.it> (http://datsko.it)",
   "license": "MIT",

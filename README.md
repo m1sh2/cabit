@@ -83,3 +83,67 @@ cabit.onAll('some', function(data) {
 var MyModule = new MyModule();
 MyModule.someMethod();
 ```
+
+## Angular 2 setup
+
+### typings.d.ts
+
+```
+interface Window {
+  cabit: any;
+}
+
+declare var cabit: {
+  start: any
+  end: any
+  onStart: any
+  onEnd: any
+  onAll: any
+}
+```
+
+### .angular-cli.json
+
+```
+      "scripts": [
+        "../node_modules/cabit/cabit.js"
+      ]
+```
+
+### polyfills.ts
+
+```
+const cabit = window.cabit;
+```
+
+### Example
+
+```
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `<span (click)="hey()">Hey!</span>`
+})
+export class AppComponent {
+  constructor() {
+    cabit.onStart('hey', data => {
+      console.log('start', data);
+
+      cabit.end('hey', 'Bye!');
+    });
+
+    cabit.onEnd('hey', data => {
+      console.log('end', data);
+    });
+
+    cabit.onAll('hey', data => {
+      console.log('all', data);
+    });
+  }
+
+  hey() {
+    cabit.start('hey', 'Hey!');
+  }
+}
+```
